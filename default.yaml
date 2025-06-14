@@ -19,6 +19,7 @@ switcher:
     - full_shape
     - ascii_punct
     - embeded_cands
+    - yuhao_autocompletion_filter
     - original
     - yuhao_charset_prioritizer_common
     - yuhao_charset_prioritizer_ubiquitous
@@ -26,10 +27,14 @@ switcher:
     - yuhao_charset_filter_common
     - yuhao_charset_filter_tonggui
     - yuhao_charset_filter_harmonic
+    - yuhao_single_char_only_for_full_code
+    - yuhao_postpone_full_code
     - yuhao_chaifen.off
     - yuhao_chaifen.lv1
     - yuhao_chaifen.lv2
     - yuhao_chaifen.lv3
+    - traditionalization
+    - simplification
 
 key_binder:
   bindings:

@@ -35,10 +35,10 @@ switches:
     # Control+Shift+O
   - name: yuhao_single_char_only_for_full_code
     states: ["字詞同出", "全碼出單"]
-    reset: 0
+    #reset: 0
     # Control+Shift+D
   - name: yuhao_postpone_full_code
-    reset: 0
+    #reset: 0
     states: [原始排序, 全碼後置]
     # Control+Shift+H
   - options:
@@ -48,16 +48,16 @@ switches:
     states: [無註解, 二重註解, 多重註解]
     #reset: 0
   - name: yuhao_autocompletion_filter
-    reset: 0
+    #reset: 0
     states: [輸入預測, 精確匹配]
     # Control+Shift+Y
   - name: traditionalization
     states: [简保持, 简转繁]
-    reset: 0
+    #reset: 0
     # Control+Shift+F
   - name: simplification
     states: [繁保持, 繁轉簡]
-    reset: 0
+    #reset: 0
     # Control+Shift+J
   - name: ascii_mode
     states: [中文, 西文]
@@ -93,6 +93,8 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
+    - lua_translator@*amz.shijian
+    - lua_translator@*tiger.number # 数字转大写
     - history_translator@history
     #- reverse_lookup_translator
     - script_translator@leo_pinyin_lookup
@@ -100,7 +102,6 @@ engine:
     - table_translator@fixed # 固定字頻
     - table_translator
     - table_translator@zaoci  # 用户造詞
-    - lua_translator@*amz.shijian
     - lua_translator@*yuhao.yuhao_switch_tr@yuhao_macro  # 控制臺
   filters:
     - lua_filter@*yuhao.yuhao_autocompletion_filter
@@ -156,6 +157,7 @@ speller:
   delimiter: "`"
   max_code_length: 4
   auto_select: true
+  auto_clear: max_length
   auto_select_pattern: ^;\w+
   algebra:
 
